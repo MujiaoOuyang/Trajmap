@@ -1,4 +1,4 @@
-# TrajMap Evaluation
+# TrajMap
 
 Evaluation code for **TrajMap: Trajectory-Guided Topology-Preserving Global Lightweight HD Map Generation**.
 
