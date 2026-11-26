@@ -1,0 +1,11 @@
+# Versions actually loaded during synthetic tests: lane3d Python 3.8 plus
+# isolated /tmp PyShp/Rtree dependencies; not a clean-install validation.
+# GDAL/osgeo is optional for convert_3d_to_2d and must match native GDAL.
+pyshp==2.3.1
+pyproj==3.5.0
+geopandas==0.13.2
+pandas==1.5.2
+rtree==1.3.0
+fiona==1.9.6
+shapely==1.8.4
+numpy==1.24.4

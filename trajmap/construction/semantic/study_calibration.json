@@ -1,0 +1,28 @@
+{
+  "description": "Matrices copied from canonical myConcateTemp.py. Original study setting only; explicitly select only for matching sensors, image calibration and pose frames.",
+  "source": "HDMap-main/myConcateTemp.py",
+  "source_sha256": "470baf8ebc9d888b0a669f4c4f6211cf1fd5cbe2b204936339c9112cbaab03f0",
+  "conventions": {
+    "intrinsic": "Rectified image pinhole matrix used by the original projection",
+    "extrinsic_r2c": "LiDAR to camera homogeneous transform",
+    "extrinsic_r2b": "Retained study metadata only; original pcd_trans applies the TUM pose directly, not this matrix",
+    "pose": "timestamp x y z qx qy qz qw; seconds, metres; must transform the LiDAR-frame points into the chosen world frame"
+  },
+  "intrinsic": [
+    [542.697021484375, 0.0, 638.459716796875],
+    [0.0, 542.697021484375, 363.0804138183594],
+    [0.0, 0.0, 1.0]
+  ],
+  "extrinsic_r2c": [
+    [-0.00330291, -0.99976515, -0.02139834, 0.05481792],
+    [0.00956682, 0.02136594, -0.9997259, -0.29801953],
+    [0.99994856, -0.00350672, 0.00949401, -0.73360526],
+    [0.0, 0.0, 0.0, 1.0]
+  ],
+  "extrinsic_r2b": [
+    [0.999564007, 0.0295189789, 0.000228261395, 0.0317729729],
+    [-0.0295190484, 0.99946651, 0.0139929355, -0.29709448],
+    [0.000184636835, -0.0139933666, 0.999902162, -0.731616689],
+    [0.0, 0.0, 0.0, 1.0]
+  ]
+}

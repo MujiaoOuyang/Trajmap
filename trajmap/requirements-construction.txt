@@ -1,0 +1,6 @@
+# Dependencies for semantic-PCD/TUM lane-map generation.
+-r requirements.txt
+open3d
+scikit-learn
+geographiclib
+pandas

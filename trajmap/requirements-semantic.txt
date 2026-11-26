@@ -1,0 +1,10 @@
+# Lightweight dependencies for the semantic source tools, not a locked inference environment.
+numpy>=1.21,<2
+scipy
+scikit-learn
+opencv-python
+open3d
+pypcd4>=1.4,<2
+# Inference: install mutually compatible torch, mmcv (with ops), mmengine and
+# mmsegmentation separately for your platform. See construction/semantic/README.md.
+# Detectron2 + Mask2Former are only needed for predict.get_predict_func_detectron.

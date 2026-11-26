@@ -1,0 +1,85 @@
+{
+  "canonical_source_root": "HDMap-main",
+  "postprocessing_source_root": "tramap/shp_transform",
+  "confirmed_by_author": "2026-11-26",
+  "release_status": "Curated construction, semantic preparation, Shapefile postprocessing and evaluation source. Full historical sensor-to-attributed-map reproduction is not verified.",
+  "files": {
+    "construction/process_lane_segments.py": {
+      "source": "HDMap-main/process_lane_segments.py",
+      "original_sha256": "39734cd1dfb26863fa2f39f4ca953e7c28ef7dbb236b628f821a9c4762ff3259",
+      "changes": "Export API accepts explicit coordinate conversion and returns a GeoDataFrame; repair numeric lane IDs; filter zero-length export edges; lazy legacy geographiclib import; fix uninitialized visualization-only state in solid-only windows. Optional arrow callback at window-fit and post-normalization stages preserves the lane return tuple. Fitting thresholds unchanged. See SOURCE_GUIDE.md."
+    },
+    "construction/save_stopline_points.py": {
+      "source": "HDMap-main/save_stopline_points.py",
+      "original_sha256": "01f55c36382b1d43e20a5d54f5e6d2fd76c8d5919df3bc1f04360e7af722f8dd",
+      "changes": "Accept an argv list; require explicit input, pose and output paths; visualization defaults off. Segmentation rules unchanged."
+    },
+    "construction/road_structure_analyzer.py": {
+      "source": "HDMap-main/road_structure_analyzer.py",
+      "original_sha256": "b47da30c4796505eefebd2a48ded5d0d9906b3fdcc81d276598c25c682a8247b",
+      "changes": "Unmodified supporting research module; not automatically invoked by generate_map.py."
+    },
+    "construction/generate_map.py": {
+      "changes": "New headless orchestration, input/output validation, explicit CRS conversion, logging and failure reporting. Optional recovered arrow module; closed-LineString box export with separate cluster-mean fields and per-class counts. Not a new reconstruction algorithm."
+    },
+    "construction/arrow_generation.py": {
+      "source": "/media/oymj/F/HDMap-main/process_lane_segments.py",
+      "original_sha256": "126fe7076c9b1bbb97f22586840a72e6b7dd134076516ee00fc50b1c15f64b6f",
+      "confirmed_by_author": "2026-11-26",
+      "scope": "Arrow functions only; does not replace the canonical lane fitter.",
+      "changes": "Extract active arrow clustering, lane filtering and rectangle construction. Remove GUI/debug drawing; add input and empty-result guards. Normalize nested lane arrays, including two-point lists and deep nesting previously skipped or rejected; not universally output-equivalent. Preserve numeric thresholds and separate box-midpoint/cluster-mean conventions. See SOURCE_GUIDE.md for retained limitations."
+    },
+    "construction/semantic/myConcateTemp.py": {
+      "source": "HDMap-main/myConcateTemp.py",
+      "original_sha256": "470baf8ebc9d888b0a669f4c4f6211cf1fd5cbe2b204936339c9112cbaab03f0",
+      "changes": "Explicit data/model/calibration/mask arguments, lazy runtime dependencies, direct pypcd4 API and output validation; original projection and fusion calculations retained."
+    },
+    "construction/semantic/arrow_postprocess.py": {
+      "source": "HDMap-main/arrow_postprocess.py",
+      "original_sha256": "1a755e5c45cdbd9f0a0e484a8fe76953567f4df21a57fc161bb19700936066c4",
+      "changes": "Explicit car-mask argument and use-site imports; original mask-recovery calculations retained."
+    },
+    "construction/semantic/predict.py": {
+      "source": "HDMap-main/predict.py",
+      "original_sha256": "edf78cb83ae9ca5ad3c931f656a9971a87cee70eafff1c5f354f0211ca6b3157",
+      "changes": "Isolate optional inference dependencies and explicit model paths; retain colormaps and legacy factory conventions."
+    },
+    "construction/semantic/arrow_vectorized.py": {
+      "source": "HDMap-main/arrow_vectorized.py",
+      "original_sha256": "841d14b485e66f4f90d553af7e1d9b32bd7971113d7e55649333a2f06473b3ba",
+      "changes": "Explicit input CLI and lazy GUI dependencies; remains an inspection tool, not a Shapefile exporter."
+    },
+    "construction/semantic/configs/segformer_whu_inference.py": {
+      "source_kind": "checkpoint_embedded_configuration",
+      "checkpoint": "iter_160000.pth",
+      "checkpoint_sha256": "ad0487a1cac326c8932287d1d61a47ff9b36528c22d24a89b7e37fad3be22d93",
+      "configuration_key": "meta.cfg",
+      "changes": "Retain model architecture, preprocessing, test pipeline and visualizer. Disable backbone pretraining initialization because full weights are required. Omit training datasets, optimizer and private paths. Add the test_dataloader.dataset.pipeline view required by MMSegInferencer. No weights are bundled."
+    },
+    "postprocessing/fusion_multishp.py": {
+      "source": "tramap/shp_transform/fusion_multishp.py",
+      "original_sha256": "c8237e22d74c3ad1c4d8258d55ba117bddff901f55b7c07e33e9b737cae15830",
+      "changes": "Parameterized merge/arrows entry points, CRS validation, preserve actual CRS instead of hardcoded assignment, output guards and import safety. Preserve schema and ID-normalization conventions."
+    },
+    "postprocessing/cal_shp_lane_info.py": {
+      "source": "tramap/shp_transform/cal_shp_lane_info.py",
+      "original_sha256": "a8f9e2ff92cdd16c6a6f8165fce1287d14cc7927f70a23468b7edaed4aeac8b7",
+      "changes": "Wrap attribute processing in explicit CLI, validate legacy schema and supported CRS, isolate optional imports and protect outputs. Handle vertical first segments with infinite slope and horizontal normal; other width/count rules retained."
+    },
+    "postprocessing/prepare_lane_attributes.py": {
+      "changes": "New schema-only adapter for lane construction output and the legacy width calculation. Requires explicit angle gate, preserves original IDs/metadata, creates unique feature scan IDs and keeps unknown graph nodes null. No geometry or topology inference."
+    },
+    "postprocessing/cal_shp_lane_info_lanenumber_label.py": {
+      "source": "tramap/shp_transform/cal_shp_lane_info_lanenumber_label.py",
+      "original_sha256": "677a033183f8bb450bfbf88c292d05db28184a5b9cf147751625bce1b6b770cd",
+      "changes": "Explicit CLI and validation; retain original lane-number/label calculations and positional field assumptions; remove import-time environment mutation."
+    },
+    "postprocessing/convert_3d_to_2d.py": {
+      "source": "tramap/shp_transform/3dTransform2d.py",
+      "original_sha256": "154851363c0c8e636b6f47d80d2d04d243fc64c1125aeb14267d3190160671d2",
+      "changes": "Descriptive filename, explicit input/output CLI, lazy GDAL import and overwrite protection; preserve XY and endpoint-Z extraction."
+    }
+  },
+  "excluded_sources": ["trajmap (older reconstruction snapshot)", "removable-drive lane fitter and dataset-specific main (only confirmed arrow functions imported)"],
+  "license_status": "Upstream HDMap MIT notice retained; author-added source has no newly assigned repository-wide license. See THIRD_PARTY_NOTICES.md."
+}

@@ -1,0 +1,8 @@
+# Evaluation dependencies. See docs/REPRODUCIBILITY.md for the tested environment.
+numpy
+scipy
+geopandas
+shapely
+pyproj
+networkx
+matplotlib
